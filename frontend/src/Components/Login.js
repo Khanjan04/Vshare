@@ -46,7 +46,7 @@ export default function Login() {
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright © "}
         {/* {new Date().getFullYear()} */}
-        Khanjan Varma
+        TY-41
         {". "}
         Made with{" "}
         <span role="img" aria-label="sheep">
