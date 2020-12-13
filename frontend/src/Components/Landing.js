@@ -1,6 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import ReceiptIcon from "@material-ui/icons/Receipt";
+import Cards from "./Cards";
 import laptop from "../Images/laptop.jpg";
 const Landing = () => {
   return (
@@ -14,6 +15,11 @@ const Landing = () => {
             is a one stop destination for VIT students and teachers. Here
           teachers can share notes with students and can make announcements.
         </Typography>
+      </div>
+      <div>
+      <>
+      <Cards />
+      </>
       </div>
     </div>
   );
