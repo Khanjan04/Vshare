@@ -72,7 +72,7 @@ export default function Dashboard() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {"Copyright © "}
-        Khanjan Varma
+        TY-41
         {". "}
         Made with{" "}
         <span role="img" aria-label="sheep">
@@ -210,6 +210,74 @@ export default function Dashboard() {
               onClick={(e) => handlePhotoSubmit(e)}
             >
               Upload Notes
+            </Button>
+          </form>
+        </div>
+
+        {success &&
+          success.map((item, index) => (
+            <Alert
+              key={index}
+              variant="success"
+              className="mt-2"
+              style={{ textAlign: "center" }}
+            >
+              {item}
+            </Alert>
+          ))}
+      </Container>
+      <h3 style={{ textAlign: "center", marginTop: "40px" }}> Events Section</h3>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <form className={classes.form} noValidate>
+            <TextField
+              value={name}
+              onChange={handleChange("name")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Name"
+              autoFocus
+            />
+            <TextField
+              value={subject}
+              onChange={handleChange("subject")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Topic"
+              autoFocus
+            />
+            <TextField
+              value={description}
+              onChange={handleChange("description")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Description"
+              type="name"
+              id="name"
+              autoComplete="current-password"
+            />
+            <input
+              type="file"
+              margin="normal"
+              onChange={handleChange("photo")}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={(e) => handlePhotoSubmit(e)}
+            >
+              Upload Events details
             </Button>
           </form>
         </div>
