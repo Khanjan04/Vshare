@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import ReceiptIcon from "@material-ui/icons/Receipt";
 import Cards from "./Cards";
 import laptop from "../Images/laptop.jpg";
 const Landing = () => {
