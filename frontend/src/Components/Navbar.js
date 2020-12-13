@@ -15,7 +15,7 @@ export default function NavigationBar() {
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="light" expand="lg" >
         <Navbar.Brand className="name" as={Link} to="/">
           Vshare
         </Navbar.Brand>
