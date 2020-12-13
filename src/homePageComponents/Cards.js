@@ -11,7 +11,7 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='../images/img-9.jpg'
-              text='Raspberry-pie workshop on robotics  and bluetooth integration with arduino'
+              text='Raspberry-pie workshop on robotics and bluetooth integration with arduino'
               label='TRF'
               path='/services'
             />
