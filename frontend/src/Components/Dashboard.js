@@ -277,7 +277,7 @@ export default function Dashboard() {
               className={classes.submit}
               onClick={(e) => handlePhotoSubmit(e)}
             >
-              Upload Events details
+              Upload Events Details
             </Button>
           </form>
         </div>
