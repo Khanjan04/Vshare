@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Cards from "./Cards";
-import laptop from "../images/laptop.jpg";
+import laptop from "../Images/laptop.jpg";
 const Landing = () => {
   return (
     <div className="hero">
