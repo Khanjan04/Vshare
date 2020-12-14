@@ -1,3 +1,3 @@
 export default {
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/college-space-master'
+    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/Vshare'
 }
