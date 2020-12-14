@@ -179,12 +179,6 @@ export default function Question() {
               id="name"
               autoComplete="current-password"
             />
-            <input
-              type="file"
-              margin="normal"
-              onChange={handleChange("photo")}
-            />
-           
             <Button
               type="submit"
               fullWidth
@@ -249,12 +243,6 @@ export default function Question() {
               id="name"
               autoComplete="current-password"
             />
-            <input
-              type="file"
-              margin="normal"
-              onChange={handleChange("photo")}
-            />
-           
             <Button
               type="submit"
               fullWidth
