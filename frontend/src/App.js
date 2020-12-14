@@ -10,6 +10,7 @@ import PrivateRoute from "./Authentication/PrivateRoute";
 import { Provider } from "./state";
 import Footer from "./Components/Footer";
 import Info from "./Components/Info";
+import Question from "./Components/Questions";
 import Notes from "./Components/Notes";
 import Axios from "axios";
 const TEACHER = "TEACHER";
@@ -128,6 +129,12 @@ function App() {
             <>
               <NavigationBar key="6" />
               <Info />
+            </>
+          </Route>
+          <Route path="/questions">
+            <>
+              <NavigationBar key="7" />
+              <Question />
             </>
           </Route>
         </Switch>
