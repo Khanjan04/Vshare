@@ -36,6 +36,13 @@ export default function NavigationBar() {
             >
               Announcements
             </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/questions"
+              onClick={() => history.push("/questions")}
+            >
+              Questions
+            </Nav.Link>
             {isAuthenticated() ? (
               <React.Fragment>
                 {" "}
