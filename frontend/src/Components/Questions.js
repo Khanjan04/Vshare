@@ -185,7 +185,7 @@ export default function Question() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={(e) => handlePhotoSubmit(e)}
+              // onClick={(e) => handlePhotoSubmit(e)}
             >
               Ask Question
             </Button>
@@ -249,7 +249,7 @@ export default function Question() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={(e) => handlePhotoSubmit(e)}
+              // onClick={(e) => handlePhotoSubmit(e)}
             >
               Give an Answer
             </Button>
