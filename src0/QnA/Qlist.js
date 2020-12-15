@@ -1,3 +1,7 @@
+import React,{useState} from 'react';
+import {projectFirestore,timestamp} from '../firebase/config';
+import useFirestore from '../hooks/useFirestore';
+
 import React, { useState } from "react";
 import { useAppState } from "../state";
 import { makeStyles } from "@material-ui/core/styles";
@@ -14,7 +18,8 @@ import Container from "@material-ui/core/Container";
 import Axios from "axios";
 import { Alert } from "react-bootstrap";
 
-export default function Question() {
+const Qlist = () =>{
+
   const { getTeacher, getAnnouncementDetails, addAnnouncement } = useAppState();
   const [value, setvalue] = useState([]);
   const [announcements, setannouncements] = useState(getAnnouncementDetails());
@@ -109,7 +114,7 @@ export default function Question() {
     },
   }));
   const classes = useStyles();
-  return (
+ 
     <React.Fragment>
       <Table size="small">
         <TableHead>
@@ -272,5 +277,138 @@ export default function Question() {
         <Copyright />
       </Box>
     </React.Fragment>
-  );
+
+		const{docs} = useFirestore('questions');
+		const[question, setQuestion] = useState(null);
+		const[entered, setEntered] = useState(null);
+		
+		const handleQuestion=(e)=>{
+			setQuestion(e.target.value);
+		}
+		
+		const handleChange =(e)=>{
+			e.preventDefault();
+			const createdAt = timestamp();
+			let q = question;
+			projectFirestore.collection('questions').add({question:question,createdAt:createdAt}).then(function(docRef) {
+    			console.log("Document written with ID: ", docRef.id);
+    			setQuestion(null);
+    			
+			})
+			.catch(function(error) {
+    			console.error("Error adding document: ", error);
+			});		
+			
+			projectFirestore.collection("questions").get().then((querySnapshot) => {
+    			querySnapshot.forEach((doc) => {
+      			//console.log("Hello there",doc.data().a);
+    			});
+			});
+		}
+		
+		return (
+		<div>
+			<div>
+				<form onSubmit={handleChange}>
+					<label>
+						Enter Question :
+						<input type = 'text' onChange = {handleQuestion}/>
+					</label>
+					
+					<label className='plus-button'>
+						+
+						<input type="submit" value='Submit' />						
+					</label>
+				</form>
+			</div>
+		
+			<div>
+				<ol className = 'rounded-list'>
+					
+					{docs && docs.map(doc=>(
+						<div>
+						<li>{doc.question}</li>
+							<ol className ='rectangle-list'>
+								{doc.answer && doc.answer.map(ans=>(							
+									<li>{ans}</li>
+								))}
+							</ol>
+							<div>
+								Enter Answer :
+								<input type = 'text' />
+							</div>
+						
+						<div className='plus-buttonu'><span></span></div></div>
+					))}
+				
+				</ol>
+				 
+			</div>
+
+			<h3 style={{ textAlign: "center", marginTop: "40px" }}> Give an Answer </h3>
+      <React.Fragment>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <form className={classes.form} noValidate>
+            <TextField
+              value={Name}
+              onChange={handleChange("name")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Name"
+              autoFocus
+            />
+            <TextField
+              value={Question}
+              onChange={handleChange("subject")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Question"
+              autoFocus
+            />
+            <TextField
+              value={answer}
+              onChange={handleChange("description")}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              label="Answer"
+              type="name"
+              id="name"
+              autoComplete="current-password"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              // onClick={(e) => handlePhotoSubmit(e)}
+            >
+              Give an Answer
+            </Button>
+          </form>
+        </div>
+        {success &&
+          success.map((item, index) => (
+            <Alert
+              key={index}
+              variant="success"
+              className="mt-2"
+              style={{ textAlign: "center" }}
+            >
+              {item}
+            </Alert>
+          ))}
+      </Container>
+      </React.Fragment>
+		</div>
+		);
 }
+export default Qlist;

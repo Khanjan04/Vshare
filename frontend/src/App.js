@@ -13,6 +13,7 @@ import Info from "./Components/Info";
 import Question from "./Components/Questions";
 import Notes from "./Components/Notes";
 import Axios from "axios";
+import Qlist from "./src0/QnA/Qlist";
 const TEACHER = "TEACHER";
 
 function App() {
@@ -134,7 +135,7 @@ function App() {
           <Route path="/questions">
             <>
               <NavigationBar key="7" />
-              <Question />
+              <Qlist />
             </>
           </Route>
         </Switch>
