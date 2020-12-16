@@ -67,7 +67,7 @@ const Qlist = () =>{
 									<li>{ans}</li>
 								))}
 							</ol>						
-						<div className='plus-buttonu'><span></span></div></div>
+						<div className='plus-button'><span></span></div></div>
 					))}			
 				</ol>				 
 			</div>
