@@ -45,7 +45,18 @@ const Qlist = () =>{
 					</label>
 				</form>
 			</div>
-		
+			<div>
+				<form onSubmit={handleChange}>
+					<label>
+						Enter Answer :
+						<input type = 'text' onChange = {handleQuestion}/>
+					</label>
+					<label className='plus-button'>
+						+
+						<input type="submit" value='Submit' />						
+					</label>
+				</form>
+			</div>		
 			<div>
 				<ol className = 'rounded-list'>
 					{docs && docs.map(doc=>(
