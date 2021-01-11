@@ -76,7 +76,7 @@ export default function Question() {
         {". "}
         Made with{" "}
         <span role="img" aria-label="sheep">
-          ❤️
+          
         </span>{" "}
         {"."}
       </Typography>
