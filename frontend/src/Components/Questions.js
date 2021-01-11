@@ -185,7 +185,6 @@ export default function Question() {
               variant="contained"
               color="primary"
               className={classes.submit}
-              // onClick={(e) => handlePhotoSubmit(e)}
             >
               Ask Question
             </Button>
