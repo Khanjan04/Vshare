@@ -1,5 +1,5 @@
-import React, { useState, createContext, useContext, useRef } from "react";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useRef } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import NavigationBar from "./Components/Navbar";
 import Landing from "./Components/Landing";
@@ -10,7 +10,6 @@ import PrivateRoute from "./Authentication/PrivateRoute";
 import { Provider } from "./state";
 import Footer from "./Components/Footer";
 import Info from "./Components/Info";
-import Question from "./Components/Questions";
 import Notes from "./Components/Notes";
 import Axios from "axios";
 import Qlist from "./src0/QnA/Qlist";
@@ -37,7 +36,7 @@ function App() {
     localStorage.removeItem(TEACHER);
   }
 
-  function getAnnouncementDetails() {    
+  function getAnnouncementDetails() {
     if (getTeacher()) {
       return getTeacher().teacher.announcements;
     }
@@ -45,13 +44,13 @@ function App() {
 
   async function addAnnouncement(data) {
     let response;
-    if (data == "") {
+    if (data === "") {
       return null;
     }
     await Axios.post(
       "https://collegespace123.herokuapp.com/college/teacher/announcements",
       {
-        announcements: data == "" ? null : data,
+        announcements: data === "" ? null : data,
       },
       {
         headers: {
