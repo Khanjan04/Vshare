@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAppState } from "../state";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -8,9 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
 export default function Announcements({ data, name }) {
-  const { getTeacher, getAnnouncementDetails, addAnnouncement } = useAppState();
-  const [value, setvalue] = useState([]);
-
+  const { getAnnouncementDetails } = useAppState();
   console.log(getAnnouncementDetails());
   const useStyles = makeStyles((theme) => ({
     seeMore: {
