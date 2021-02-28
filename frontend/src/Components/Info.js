@@ -13,13 +13,13 @@ export default function Info() {
   const [teachername, setteachername] = useState("");
 
   const getDetails = async () => {
-    if (value == "") {
+    if (value === "") {
       setannouncements("");
       seterrors(["Please provide valid name of teacher"]);
     } else {
       var array = await getAnnouncementDetailsByInputName(value);
       console.log(array.data.teacher);
-      if (array.data.teacher.length == 0) {
+      if (array.data.teacher.length === 0) {
         seterrors(["Please provide valid name of teacher"]);
       } else {
         setteachername(value);
