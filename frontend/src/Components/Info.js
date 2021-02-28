@@ -2,19 +2,15 @@ import React, { useState } from "react";
 import { Jumbotron, Alert, Button } from "react-bootstrap";
 import Announcements from "./Announcements";
 import { useAppState } from "../state";
-import { useHistory } from "react-router-dom";
 
 export default function Info() {
   const [value, setvalue] = useState("");
   const {
-    getTeacher,
-    getAnnouncementDetails,
     getAnnouncementDetailsByInputName,
   } = useAppState();
   const [announcements, setannouncements] = useState("");
   const [errors, seterrors] = useState([]);
   const [teachername, setteachername] = useState("");
-  const history = useHistory();
 
   const getDetails = async () => {
     if (value == "") {
