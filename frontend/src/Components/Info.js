@@ -15,12 +15,12 @@ export default function Info() {
   const getDetails = async () => {
     if (value === "") {
       setannouncements("");
-      seterrors(["Please provide valid name of teacher"]);
+      seterrors(["Please provide valid name."]);
     } else {
       var array = await getAnnouncementDetailsByInputName(value);
       console.log(array.data.teacher);
       if (array.data.teacher.length === 0) {
-        seterrors(["Please provide valid name of teacher"]);
+        seterrors(["Please provide valid name."]);
       } else {
         setteachername(value);
         setannouncements(array.data.teacher[0].announcements);
