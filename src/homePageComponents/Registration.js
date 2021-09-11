@@ -22,6 +22,7 @@ function RegistrationForm(props) {
         props.updateTitle('Login')
         props.history.push('/login'); 
     }
+    
     const handleSubmitClick = (e) => {
         e.preventDefault();
         if(state.password === state.confirmPassword) {
